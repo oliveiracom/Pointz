@@ -1,0 +1,18 @@
+<div id="LOGIN">
+  <div class="log-box">
+    Faça seu Login
+    <form [formGroup]="loginForm" (ngSubmit)="onComplete()">
+      <mat-form-field appearance="fill">
+        <mat-label>E-Mail</mat-label>
+        <input matInput id="email" formControlName="email" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Senha</mat-label>
+        <input matInput id="password" formControlName="password" />
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Login</button>
+    </form>
+  </div>
+</div>

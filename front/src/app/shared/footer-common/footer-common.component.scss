@@ -1,0 +1,21 @@
+.footer_bottom {
+  display: flex;
+  /* justify-content: space-between; */
+
+  justify-content: center;
+}
+
+#footer_menu li {
+  display: inline;
+  padding-right: 16px;
+}
+
+#footer_menu li a {
+  color: #a39f8b;
+  font-size: 12px;
+}
+.texto_bottom_footer {
+  color: #a39f8b;
+  font-size: 12px;
+  text-align: center;
+}

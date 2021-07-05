@@ -1,0 +1,11 @@
+@use '~@angular/material' as mat;
+
+$my-palette: mat.$indigo-palette;
+
+#WRAPPER {
+  align-content: stretch;
+
+  #main {
+    flex-grow: 1;
+  }
+}
