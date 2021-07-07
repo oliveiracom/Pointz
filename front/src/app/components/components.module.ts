@@ -5,10 +5,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [],
+  declarations: [
+    HomeComponent
+  ],
   exports: [
     CommonModule,
     FormsModule,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'user-signup',
@@ -13,7 +14,7 @@ export class SignupComponent implements OnInit {
     password: '',
   });
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, login: LoginService) {}
 
   ngOnInit(): void {
     console.log('init signup comp');
@@ -21,6 +22,15 @@ export class SignupComponent implements OnInit {
 
   onComplete() {
     //form ok
+    console.log('cadastra new user', this.loginForm.value);
+    /* const body = {
+      name,
+      email,
+      password,
+      balance,
+    }
+    this.login.addNewUser(); */
+
     this.loginForm.reset();
   }
 }

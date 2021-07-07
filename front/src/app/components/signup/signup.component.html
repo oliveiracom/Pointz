@@ -17,7 +17,14 @@
         <input matInput id="password" formControlName="password" />
       </mat-form-field>
 
-      <button mat-raised-button color="primary" type="submit">Login</button>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="!loginForm.valid"
+      >
+        Criar Usuário
+      </button>
     </form>
   </div>
 </div>

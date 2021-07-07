@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { IUser } from '../models/users.model';
 
 @Injectable({
   providedIn: 'root',
@@ -7,9 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class LoginService {
   constructor(protected http: HttpClient) {}
 
-  getShippingPrices() {
-    return this.http.get<{ type: string; price: number }[]>(
-      '/assets/shipping.json'
-    );
+  addNewUser(data: IUser) {
+    return this.http.post<IUser>('http://localhost:8000/users', data);
   }
 }

@@ -2,6 +2,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
+require("./data/users.js");
+
 var corsOptions = {
   origin: "http://localhost:4200",
   optionsSuccessStatus: 200,
@@ -16,23 +18,6 @@ app.listen(8000, () => {
 app.use(cors(corsOptions));
 
 app.use(bodyParser.json());
-
-let users = [
-  {
-    id: 1,
-    name: "Lorelai Gilmore",
-    email: "lorgilmore@gmail.com",
-    pass: "1234",
-    address: [],
-  },
-  {
-    id: 2,
-    name: "Rory Gilmore",
-    email: "reoryleigh@gmail.com",
-    pass: "1234",
-    address: [],
-  },
-];
 
 app.route("/api/users").get((req, res) => {
   res.send({ users });

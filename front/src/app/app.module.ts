@@ -18,6 +18,7 @@ import { RouterModule } from '@angular/router';
 import { LoginService } from './services/login.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ComponentsModule } from './components/components.module';
+import { ServicesModule } from './services/services.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,12 +35,12 @@ import { ComponentsModule } from './components/components.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     ReactiveFormsModule,
     ComponentsModule,
+    AppRoutingModule,
     BrowserAnimationsModule,
   ],
-  providers: [LoginService],
+  providers: [ServicesModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
