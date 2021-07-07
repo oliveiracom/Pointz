@@ -2,7 +2,6 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
-require("./data/users.js");
 
 var corsOptions = {
   origin: "http://localhost:4200",
@@ -11,13 +10,51 @@ var corsOptions = {
 
 const app = express();
 
-app.listen(8000, () => {
+app.listen(8099, () => {
   console.log("Server started!");
 });
 
 app.use(cors(corsOptions));
 
 app.use(bodyParser.json());
+
+let users = [
+  {
+    id: 1,
+    name: "Lorelai Gilmore",
+    email: "lorgilmore@gmail.com",
+    pass: "1234",
+    address: [],
+  },
+  {
+    id: 2,
+    name: "Rory Gilmore",
+    email: "reoryleigh@gmail.com",
+    pass: "1234",
+    address: [],
+  },
+];
+
+let gifts = [
+  {
+    id:1,
+    item: "Viagem ao Centro da Terra",
+    price: 2500,
+    qtd: 4
+  },
+  {
+    id:2,
+    item: "Cruzeiro Trinagulo das Bermudas",
+    price: 2500,
+    qtd: 4
+  },
+  {
+    id:2,
+    item: "City Tour beco diagonal",
+    price: 4500,
+    qtd: 4
+  }
+]
 
 app.route("/api/users").get((req, res) => {
   res.send({ users });
@@ -34,7 +71,22 @@ app.route("/api/users").post((req, res) => {
 });
 
 app.route("/api/users/:id").put((req, res) => {
-  res.send(200, req.body);
+  res.status(200).send(req.body);
+});
+
+app.route("/api/auth").post((req, res) => {
+  const authUser = users.find( item => item.email === req.body.email);
+  if (!authUser) {return null;}
+  const authPass = users.find( item => item.password === req.body.password);
+  if(authPass) {
+    res.send(201,{
+      code: 9901
+    });
+  } else {
+    res.status(201).send({
+      code: 9901
+    });
+  }
 });
 
 /* app.route('/api/cats/:name').delete((req, res) => {

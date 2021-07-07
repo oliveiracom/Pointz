@@ -1,10 +1,12 @@
 <nav>
-  <img src="##logo##" alt="Make more with PointZ" />
+  <span>PointZ!</span>
   <ul>
     <li>Home</li>
     <li>Gifts</li>
     <li>Pedidos</li>
   </ul>
-  <button>Entrar</button>
-  <button>Cadastrar</button>
+  <a [routerLink]="['/login']"><button mat-raised-button
+    color="basic">Entrar</button></a>
+  <a [routerLink]="['/signup']"><button mat-raised-button
+    color="basic">Cadastrar</button></a>
 </nav>

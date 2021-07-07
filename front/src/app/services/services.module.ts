@@ -1,10 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { LoginService } from './login.service';
 
 @NgModule({
   declarations: [],
-  imports: [],
-  providers: [LoginService, HttpClient],
+  imports: [HttpClientModule],
+  providers: [LoginService,],
 })
 export class ServicesModule {}

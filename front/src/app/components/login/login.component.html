@@ -4,12 +4,12 @@
     <form [formGroup]="loginForm" (ngSubmit)="onComplete()">
       <mat-form-field appearance="fill">
         <mat-label>E-Mail</mat-label>
-        <input matInput id="email" formControlName="email" />
+        <input matInput type="email" [formControl]="emailValidator" id="email" formControlName="email" required />
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Senha</mat-label>
-        <input matInput id="password" formControlName="password" />
+        <input matInput id="password" formControlName="password" required/>
       </mat-form-field>
 
       <button mat-raised-button color="primary" type="submit">Login</button>

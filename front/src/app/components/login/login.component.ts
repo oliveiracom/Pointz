@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'user-login',
@@ -8,18 +9,26 @@ import { FormBuilder } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   loginForm = this.formBuilder.group({
-    email: 'email@mail.com',
-    password: 'pass',
+    email: '',
+    password: '',
   });
 
-  constructor(private formBuilder: FormBuilder) {}
+  emailValidator = new FormControl('', [
+    Validators.required,
+    Validators.email,
+  ]);
+
+  constructor(
+    private formBuilder: FormBuilder,
+    protected login: LoginService) {}
 
   ngOnInit(): void {
-    console.log('init login comp');
   }
 
   onComplete() {
-    //form ok
-    this.loginForm.reset();
+    this.login.validateUser(this.loginForm.value).subscribe((res) => {
+      console.log(res);
+    })
+    //this.loginForm.reset();
   }
 }

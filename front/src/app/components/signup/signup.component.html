@@ -4,17 +4,17 @@
     <form [formGroup]="loginForm" (ngSubmit)="onComplete()">
       <mat-form-field appearance="fill">
         <mat-label>Seu nome</mat-label>
-        <input matInput id="name" formControlName="name" />
+        <input matInput id="name" formControlName="name" required/>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>E-Mail</mat-label>
-        <input matInput id="email" formControlName="email" />
+        <input matInput id="email" formControlName="email" required/>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Senha</mat-label>
-        <input matInput id="password" formControlName="password" />
+        <input matInput id="password"  type="email" [formControl]="emailValidator" formControlName="password" required />
       </mat-form-field>
 
       <button
@@ -26,5 +26,7 @@
         Criar Usuário
       </button>
     </form>
+
+    <div *ngIf='submitted'>Usuário Cadastrado! <a [routerLink]="['/login']">Fazer Login</a></div>
   </div>
 </div>

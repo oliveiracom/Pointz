@@ -11,7 +11,6 @@ import { SignupComponent } from './components/signup/signup.component';
 import { StatementComponent } from './components/statement/statement.component';
 
 const routes: Routes = [
-  { path: '**', component: SignupComponent },
   {
     path: 'signin',
     component: SignupComponent,
@@ -23,25 +22,30 @@ const routes: Routes = [
   {
     path: 'address',
     component: AddressComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'orders',
     component: OrdersComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'balance',
-    component: BalanceComponent,
+    component: BalanceComponent,    
+    canActivate: [AuthGuard],
   },
   {
     path: 'statement',
-    component: StatementComponent,
+    component: StatementComponent,    
+    canActivate: [AuthGuard],
   },
   {
     path: 'gifts',
     component: GiftsComponent,
     canActivate: [AuthGuard],
   },
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent },  
+  { path: '**', component: SignupComponent },
 ];
 
 @NgModule({
