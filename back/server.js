@@ -60,6 +60,10 @@ app.route("/api/users").get((req, res) => {
   res.send({ users });
 });
 
+app.route("/api/gifts").get((req, res) => {
+  res.send({ gifts });
+});
+
 app.route("/api/users/:id").get((req, res) => {
   const reqUserId = req.params["id"];
   res.send({ name: reqUserId });
@@ -78,15 +82,17 @@ app.route("/api/auth").post((req, res) => {
   const authUser = users.find( item => item.email === req.body.email);
   if (!authUser) {return null;}
   const authPass = users.find( item => item.password === req.body.password);
-  if(authPass) {
-    res.send(201,{
-      code: 9901
-    });
-  } else {
-    res.status(201).send({
-      code: 9901
+  if(authPass && authUser) {
+    return res.send(201, {
+      code: 9901,
+      user: {
+        email: req.body.email
+      },
     });
   }
+   return res.send(201, {
+      code: 9909
+    });
 });
 
 /* app.route('/api/cats/:name').delete((req, res) => {
