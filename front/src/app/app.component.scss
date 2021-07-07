@@ -3,9 +3,13 @@
 $my-palette: mat.$indigo-palette;
 
 #WRAPPER {
+  display: flex;
+  flex-direction: column;
   align-content: stretch;
+  height: 100vh;
 
   #main {
-    flex-grow: 1;
+    flex: 2;
+    background: orange;
   }
 }

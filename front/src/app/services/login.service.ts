@@ -7,6 +7,9 @@ import { IUser } from '../models/users.model';
   providedIn: 'root',
 })
 export class LoginService {
+  public session = false;
+  public user:any;
+
   constructor(
     protected http: HttpClient
   ) {}
@@ -22,6 +25,11 @@ export class LoginService {
   }
 
   public validateUser(data:any){
-    return this.http.post<any>('http://localhost:8099/api/auth', data);
+        return this.http.post<any>('http://localhost:8099/api/auth', data);
+  }
+
+  public validSession(change:boolean):Boolean {
+    this.session = change;
+    return this.session;
   }
 }

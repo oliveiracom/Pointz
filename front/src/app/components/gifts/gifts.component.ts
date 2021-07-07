@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GiftsService } from './gifts.service';
 
 @Component({
   selector: 'app-gifts',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./gifts.component.scss']
 })
 export class GiftsComponent implements OnInit {
-
-  constructor() { }
+private gifts = [];
+  constructor(
+    protected gifs: GiftsService
+  ) { }
 
   ngOnInit(): void {
+    //animated loader
+    this.gifts.listGifts().subscribe(() => {
+      
+    })
   }
 
 }
